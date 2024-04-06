@@ -1,6 +1,4 @@
-# Overview
-## Project Name
-The Little Lemon's Mobile Table Reservation System
+# The Little Lemon's Mobile Table Reservation System
 
 ## Introduction
 The Little Lemon is a popular (fictitious) Italian restaurant that this application was made to benefit. The restaurant's owners reached out to me through Meta's Front-End Developer specialization in pursuit of an application that would let their guests make table reservations any time, any where. To tailor my solution to the specific needs of their patronage, I gathered everything I'd need to know about the restaurant, their customers, and the application itself.
