@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/images/svg/Logo.svg';
+import styles from './Nav.module.css';
 import { Link } from 'react-router-dom';
 
 export const placeholderLinkAlert = (e) => {
@@ -10,7 +11,7 @@ export const placeholderLinkAlert = (e) => {
 const Nav = () => {
     return (
         <nav>
-            <ul>
+            <ul className={`${styles.padding} ${styles.flex} ${styles.flexCol} ${styles.justify}`}>
                 <li>
                     <Link to='/'>
                         <img src={Logo} alt='Little Lemon Logo' />

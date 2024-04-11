@@ -6,7 +6,7 @@ The Little Lemon is a popular (fictitious) Italian restaurant that this applicat
 ## Objectives
 - Engage in user research to craft an exemplary user persona that encapsulates an average patron with the restaurant
 - Use this persona to create a journey of their experience through the existing app as well as through a new table reservation feature to anticipate customer needs and satisfy their expectations
-- Develop a design system 
+- Develop a design system
 
 ## Project Development
 ### Planning
