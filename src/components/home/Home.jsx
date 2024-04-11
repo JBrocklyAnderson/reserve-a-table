@@ -10,7 +10,6 @@ const Home = () => {
             <Header />
             <Main />
             <Section />
-            <Footer />
         </>
     );
 }

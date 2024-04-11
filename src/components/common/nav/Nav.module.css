@@ -1,0 +1,45 @@
+.mobileNav {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+}
+
+.navbar {
+    padding: 1rem 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none; /* Hide initially on mobile devices */
+}
+
+.menu {
+    display: block;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+    .navbar {
+        flex-direction: row;
+        display: flex;
+        justify-content: space-around;
+        display: flex; /* Always display on desktops */
+    }
+
+    .menu {
+        display: none; /* Hide menu toggle on desktops */
+    }
+}
+
+.navbarItem:hover {
+    background-color: var(--lemon);
+    padding: 1.5rem;
+    font-weight: 600;
+}
+
+.navbarBtn {
+    background-color: var(--lemon);
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+}

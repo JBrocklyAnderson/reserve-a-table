@@ -1,35 +1,24 @@
 import React from 'react';
-import Logo from '../../assets/images/svg/Logo.svg';
 import styles from './Nav.module.css';
 import { Link } from 'react-router-dom';
 
-export const placeholderLinkAlert = (e) => {
-    e.preventDefault();
-    alert('This page is coming soon!');
-};
-
-const Nav = () => {
+const Links = () => {
     return (
         <nav>
-            <ul className={`${styles.padding} ${styles.flex} ${styles.flexCol} ${styles.justify}`}>
-                <li>
-                    <Link to='/'>
-                        <img src={Logo} alt='Little Lemon Logo' />
-                    </Link>
-                </li>
-                <li>
+            <ul className={`${styles.navbar} ${toggle ? styles.flex : ''}`}>
+                <li className={styles.navbarItem}>
                     <Link to='/'>Home</Link>
                 </li>
-                <li>
+                <li className={styles.navbarItem}>
                     <Link to='/our-story'>About</Link>
                 </li>
-                <li>
+                <li className={styles.navbarItem}>
                     <Link to='/menu'>Menu</Link>
                 </li>
-                <li>
+                <li className={styles.navbarItem}>
                     <Link to='/reserve-a-table'>Reservations</Link>
                 </li>
-                <li>
+                <li className={styles.navbarBtn}>
                     <Link to='/order-online' onClick={placeholderLinkAlert}>Order Online</Link>
                 </li>
             </ul>
@@ -37,4 +26,4 @@ const Nav = () => {
     );
 };
 
-export default Nav;
+export default Links;

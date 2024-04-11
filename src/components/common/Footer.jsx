@@ -1,5 +1,5 @@
 import React from 'react';
-import { placeholderLinkAlert } from './Nav';
+import { placeholderLinkAlert } from './nav/Nav';
 import { Link } from 'react-router-dom';
 
 const preventDefaultAction = (e) => {
