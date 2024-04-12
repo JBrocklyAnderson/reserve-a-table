@@ -1,33 +1,76 @@
+.navBar {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: white;
+}
+
+.mobile {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+}
+
 .menu {
     display: block;
     fill: var(--olive);
     width: 40px;
+    height: 40px;
+    margin: 0.25rem;
+    border-radius: 40%;
+    transition: background-color 0.3s ease;
 }
 
+.menu:active {
+    background-color: var(--lemon);
+    border-radius: 50%;
+}
 
-.mobileNav {
+.links {
+    flex-grow: 1; /* Use available space */
+    /* padding: 1rem; */
     flex-direction: column;
     justify-content: space-between;
-    padding: 1rem;
     align-items: center;
-}
-
-.navbar {
-    padding: 1rem 5rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 1.5rem;
     display: none; /* Hide initially on mobile devices */
 }
 
+.link {
+    padding: 0.75rem 3rem;
+    margin: -0.75rem -3rem;
+    position: relative;
+}
 
+.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
 
-
-
-.navbarItem:hover {
+.link:hover {
     background-color: var(--lemon);
-    padding: 1.5rem;
     font-weight: 600;
+    padding: 0.75rem 3rem;
+    margin: -0.75rem -3rem;
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-radius 0.3s ease;
+}
+
+.link:active {
+    color: var(--lemon);
+    background-color: var(--olive);
+    border-radius: 1rem;
 }
 
 .navbarBtn {
@@ -38,11 +81,21 @@
 }
 
 @media screen and (min-width: 769px) {
-    .navbar {
+    .navBar {
+        position: static;
+        gap: 10rem;
+        flex-direction: row;
+    }
+
+    .links {
         flex-direction: row;
         display: flex;
         justify-content: space-around;
-        display: flex; /* Always display on desktops */
+    }
+
+    link:hover {
+        padding: 2rem;
+        margin: -2rem;
     }
 
     .menu {
