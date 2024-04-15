@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import smallLogo from '../../assets/images/png/smallLogo.png'
 import { placeholderLinkAlert, preventDefaultAction } from '../../App';
 import { Link } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ const Footer = () => {
     return (
         <footer className={styles.footer}>
             <div>
+                <img src={smallLogo} alt='Logo' />
                 <div className={styles.newsletter}>
                     <label htmlFor='newsletter'>Subscribe to Our Newsletter</label>
                     <div>
@@ -51,7 +53,7 @@ const Footer = () => {
                     </nav>
                 </div>
 
-                <div>
+                <div className={styles.linkSection}>
                     <h2>Service</h2>
                     <nav>
                         <ul>
@@ -65,8 +67,7 @@ const Footer = () => {
                                 <Link to='/' onClick={placeholderLinkAlert}>Menu</Link>
                             </li>
                             <li>
-                                {/* Enable smooth scrolling to reviews section */}
-                                <a href='#reviews'>Reviews</a>
+                                <Link to='/' onClick={placeholderLinkAlert}>Reviews</Link>
                             </li>
                             <li>
                                 <Link to='/' onClick={placeholderLinkAlert}>FAQ</Link>
@@ -75,7 +76,7 @@ const Footer = () => {
                     </nav>
                 </div>
 
-                <div>
+                <div className={styles.linkSection}>
                     <h2>About</h2>
                     <nav>
                         <ul>
@@ -92,7 +93,7 @@ const Footer = () => {
                     </nav>
                 </div>
 
-                <div>
+                <div className={styles.linkSection}>
                     <h2>Help</h2>
                     <nav>
                         <ul>

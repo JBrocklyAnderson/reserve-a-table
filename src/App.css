@@ -53,5 +53,5 @@ img, picture, svg, video, audio {
 button, input, select, textarea {
   font: inherit;
   cursor: pointer;
-  box-shadow: none;
+  border: none;
 }

@@ -44,10 +44,13 @@ const specials = [
 // Create a section for restaurant specials
 const Specials = () => {
     return (
-        <main className={styles.layout}>
-            {specials.map(special => {
-                return <Special key={special.title} data={special} />
-            })}
+        <main>
+            <h2 className={styles.sectionTitle}>Weekly Specials</h2>
+            <div className={styles.layout}>
+                {specials.map(special => {
+                    return <Special key={special.title} data={special} />
+                })}
+            </div>
         </main>
     );
 };
