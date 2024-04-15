@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Nav.module.css';
 import Logo from '../../assets/images/svg/Logo.svg';
+import { placeholderLinkAlert } from '../../App';
 import { Link } from 'react-router-dom';
-
-export const placeholderLinkAlert = (e) => {
-    e.preventDefault();
-    alert('This page is coming soon!');
-};
 
 const Nav = () => {
     {/* Initialize state to track menu toggle */}
@@ -37,20 +33,20 @@ const Nav = () => {
             </div>
 
             <ul className={`${styles.links} ${isOpen ? styles.open : ''}`}>
-                <li>
-                    <Link to='/' className={`${styles.clickable} ${styles.link}`}>Home</Link>
+                <li className={styles.linkPadding}>
+                    <Link to='/' className={styles.link}>Home</Link>
                 </li>
-                <li>
-                    <Link to='/our-story' className={`${styles.clickable} ${styles.link}`}>About</Link>
+                <li className={styles.linkPadding}>
+                    <Link to='/our-story' className={styles.link}>About</Link>
                 </li>
-                <li>
-                    <Link to='/menu' className={`${styles.clickable} ${styles.link}`}>Menu</Link>
+                <li className={styles.linkPadding}>
+                    <Link to='/menu' className={styles.link} onClick={placeholderLinkAlert}>Menu</Link>
                 </li>
-                <li>
-                    <Link to='/reserve-a-table' className={`${styles.clickable} ${styles.link}`}>Reservations</Link>
+                <li className={styles.linkPadding}>
+                    <Link to='/reserve-a-table' className={styles.link}>Reservations</Link>
                 </li>
-                <li className={styles.navbarBtn}>
-                    <Link to='/order-online' className={`${styles.clickable} ${styles.link}`} onClick={placeholderLinkAlert}>Order Online</Link>
+                <li className={styles.linkPadding}>
+                    <Link to='/order-online' className={styles.navbarBtn} onClick={placeholderLinkAlert}>Order Online</Link>
                 </li>
             </ul>
         </nav>

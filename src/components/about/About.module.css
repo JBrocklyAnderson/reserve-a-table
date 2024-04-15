@@ -1,0 +1,43 @@
+.aboutPage {
+    background-image: url('../../assets/images/postcompress/AboutUs-min.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.aboutTextBlock {
+    max-width: 75ch;
+    margin: 0 auto;
+    padding-block: 1rem;
+    padding-inline: 2.5rem;
+    background-color: rgba(73,94,87,0.8)
+}
+
+.aboutTextBlock > h1 {
+    font-family: var(--markazi);
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--lemon);
+}
+
+.aboutTextBlock > h2 {
+    font-family: var(--markazi);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--lemon);
+}
+
+.aboutTextBlock > h3 {
+    font-family: var(--karla);
+    font-weight: 500;
+    color: var(--stone);
+    margin-block-end: 0.5rem;
+    text-indent: 1rem;
+}
+
+.aboutTextBlock > p {
+    font-family: var(--karla);
+    color: white;
+    line-height: 2;
+    text-indent: 2.5rem;
+    margin-block-end: 1rem;
+}

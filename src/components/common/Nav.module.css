@@ -3,19 +3,17 @@
     flex-direction: column;
     padding: 1rem;
     justify-content: space-between;
-    align-items: stretch;
-    gap: 1rem;
     width: 100%;
     position: sticky;
     top: 0;
     left: 0;
     background: white;
+    z-index: 20;
 }
 
 .mobile {
     display: flex;
     justify-content: space-between;
-    max-width: 100%;
 }
 
 .menu {
@@ -24,7 +22,7 @@
     width: 40px;
     height: 40px;
     margin: 0.25rem;
-    border-radius: 40%;
+    border-radius: 50%;
     transition: background-color 0.3s ease;
 }
 
@@ -34,37 +32,32 @@
 }
 
 .links {
-    flex-grow: 1; /* Use available space */
-    /* padding: 1rem; */
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: 1.5rem;
     display: none; /* Hide initially on mobile devices */
-}
-
-.link {
-    padding: 0.75rem 3rem;
-    margin: -0.75rem -3rem;
-    position: relative;
+    min-height: fit-content;
 }
 
 .open {
     display: flex;
-    opacity: 1;
-    transform: translateY(0);
-    transition: transform 0.3s ease;
+}
+
+.link {
+    padding: 1rem;
+    transition:
+        color 0.1s ease,
+        background-color 0.1s ease,
+        border-radius 0.1s ease;
+}
+
+.linkPadding {
+    padding: 1rem;
 }
 
 .link:hover {
     background-color: var(--lemon);
     font-weight: 600;
-    padding: 0.75rem 3rem;
-    margin: -0.75rem -3rem;
-    transition:
-        color 0.3s ease,
-        background-color 0.3s ease,
-        border-radius 0.3s ease;
 }
 
 .link:active {
@@ -78,27 +71,38 @@
     border-radius: 2rem;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
+    text-wrap: nowrap;
+    transition: box-shadow 0.2s ease;
+}
+
+.navbarBtn:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-wrap: nowrap;
 }
 
 @media screen and (min-width: 769px) {
     .navBar {
-        position: static;
-        gap: 10rem;
         flex-direction: row;
+    }
+
+    .menu {
+        display: none; /* Hide menu toggle on desktops */
+    }
+
+    .navbarBtn {
+        margin-inline-start: 1rem;
     }
 
     .links {
         flex-direction: row;
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-end;
     }
 
-    link:hover {
-        padding: 2rem;
-        margin: -2rem;
-    }
-
-    .menu {
-        display: none; /* Hide menu toggle on desktops */
+    .linkPadding {
+        padding: 0rem;
     }
 }

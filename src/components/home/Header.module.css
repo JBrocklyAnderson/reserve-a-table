@@ -1,0 +1,57 @@
+.header {
+    background-color: var(--olive);
+    display: flex;
+    color: var(--stone);
+    max-height: 500px; /* Prevent image from growing the header to awkward sizes */
+}
+
+.headerInfoBlock {
+    display: flex; /* Enable auto margining */
+    padding: 1rem;
+    flex-direction: column; /* Ensure regular content flow */
+    align-items: baseline; /* Prevent items from stretching */
+    margin-left: auto; /* Make sure that the element floats to the middle of the screen when the space it occupies grows bigger than itself */
+}
+
+.headerTxt {
+    font-family: var(--markazi);
+    font-size: clamp(2.5rem, 0.6198rem + 10.0279vw, 7rem);
+    color: var(--lemon);
+    font-weight: 500;
+    line-height: 75%;
+}
+
+.location {
+    font-family: var(--markazi);
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 75%;
+    margin-bottom: 0.5rem;
+}
+
+.headerInfo {
+    margin-block-end: 1.5rem;
+    line-height: 2;
+}
+
+
+.headerBtn {
+    display: inline-block;
+    text-wrap: balance;
+    background-color: var(--lemon);
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: black;
+    transition: box-shadow 0.2s ease;
+}
+
+.headerBtn:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.headerImg {
+    width: 50%;
+    object-fit: cover;
+    object-position: center;
+}

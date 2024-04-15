@@ -1,0 +1,42 @@
+.special {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20rem;
+    margin: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,.5);
+    border-radius: 1.5rem;
+}
+
+.special > img {
+    border-radius: 1.5rem 1.5rem 0 0;
+    z-index: 10;
+}
+
+.article {
+    background-color: var(--stone);
+    width: 20rem;
+    border-radius: 0 0 1.5rem 1.5rem;
+    padding: 1rem;
+}
+
+.article > h2 {
+    color: var(--olive);
+    font-family: var(--karla);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.article > p {
+    font-family: var(--karla);
+}
+
+.article > p:first-of-type {
+    margin-block: 0.5rem;
+    line-height: 1.5;
+}
+
+.article > p:nth-of-type(2) {
+    color: var(--lemon);
+    font-weight: 500;
+}
