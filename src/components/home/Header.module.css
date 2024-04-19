@@ -2,7 +2,7 @@
     background-color: var(--olive);
     display: flex;
     color: var(--stone);
-    max-height: 500px; /* Prevent image from growing the header to awkward sizes */
+    max-height: 400px; /* Prevent image from growing the header to awkward sizes */
 }
 
 .headerInfoBlock {

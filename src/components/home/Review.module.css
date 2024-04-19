@@ -1,0 +1,23 @@
+.card {
+    position: relative;
+    background-color: var(--olive);
+    margin: 1rem;
+    padding: 1rem;
+    color: white;
+    width: 15rem;
+    line-height: 2;
+    padding-bottom: 2.5rem;
+}
+
+.card > img {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+
+.card span {
+    color: var(--lemon);
+}
