@@ -34,11 +34,10 @@ const ReservationForm = () => {
         }
     };
 
-    const handleSumbit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         // Implement validation logic
-
         console.log(formData);
     };
 
@@ -64,7 +63,7 @@ const ReservationForm = () => {
         <div className={styles.layout}>
             <h1>Reservation details</h1>
             <h2>Customize your reservation with the Little Lemon restaurant</h2>
-            <form className={styles.form} onSubmit={handleSumbit}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <fieldset className={styles.contactInfo}>
                     <legend>Contact Information</legend>
                     <label htmlFor='firstName'>First Name</label>
@@ -74,7 +73,7 @@ const ReservationForm = () => {
                     <input id='lastName' type='text' name='lastName' value={formData.lastName} onChange={handleChange} autoComplete='name' required />
                     <br />
                     <label htmlFor='phone'>Phone</label>
-                    <input id='phone' type='tel' name='phone' value={formData.phone} pattern='([0-9]{3})-[0-9]{3}-[0-9]{4}' onChange={handleChange} autoComplete='tel' required />
+                    <input id='phone' type='tel' name='phone' placeholder='438-555-0172' value={formData.phone} onChange={handleChange} autoComplete='tel' required />
                     <br />
                     <label htmlFor='email'>Email (optional)</label>
                     <input id='email' type='text' name='email' value={formData.email} onChange={handleChange} autoComplete='email' />
@@ -87,43 +86,43 @@ const ReservationForm = () => {
                     <br />
 
                     <label htmlFor='timePicker'>Time</label>
-                    <div>
-                        <select
-                            id='timePicker'
-                            name='time'
-                            onChange={handleChange}
-                            style={{
-                                maxHeight:'5rem',
-                                overflowY:'auto',
-                        }}
-                        >
+                        <select id='timePicker' name='time' onChange={handleChange} required>
                             {timeSlots.map((time, index) => (
                                 <option key={index} value={time}>
                                     {time}
                                 </option>
                             ))}
                         </select>
-                    </div>
 
                     <fieldset>
                         <legend>Dining Area</legend>
-                        <input id='indoors' type='radio' name='diningArea' value={formData.diningArea} onChange={handleChange} />
-                        <label htmlFor='indoors'>Indoors</label>
+                        <div className={styles.flex}>
+                            <input id='indoors' type='radio' name='diningArea' value={formData.diningArea} onChange={handleChange} />
+                            <label htmlFor='indoors'>Indoors</label>
+                        </div>
 
-                        <input id='terrace' type='radio' name='diningArea' value={formData.diningArea} onChange={handleChange} />
-                        <label htmlFor='terrace'>Terrace</label>
+                        <div className={styles.flex}>
+                            <input id='terrace' type='radio' name='diningArea' value={formData.diningArea} onChange={handleChange} />
+                            <label htmlFor='terrace'>Terrace</label>
+                        </div>
                     </fieldset>
 
                     <fieldset>
                         <legend>Seating</legend>
-                        <input id='table' type='radio' name='seating' value={formData.seating} onChange={handleChange} />
-                        <label htmlFor='table'>Table</label>
+                        <div className={styles.flex}>
+                            <input id='table' type='radio' name='seating' value={formData.seating} onChange={handleChange} />
+                            <label htmlFor='table'>Table</label>
+                        </div>
 
-                        <input id='booth' type='radio' name='seating' value={formData.seating} onChange={handleChange} />
-                        <label htmlFor='booth'>Booth</label>
+                        <div className={styles.flex}>
+                            <input id='booth' type='radio' name='seating' value={formData.seating} onChange={handleChange} />
+                            <label htmlFor='booth'>Booth</label>
+                        </div>
 
-                        <input id='bar' type='radio' name='seating' value={formData.seating} onChange={handleChange} />
-                        <label htmlFor='bar'>Bar</label>
+                        <div className={styles.flex}>
+                            <input id='bar' type='radio' name='seating' value={formData.seating} onChange={handleChange} />
+                            <label htmlFor='bar'>Bar</label>
+                        </div>
                     </fieldset>
 
                     <label htmlFor='guestCount'>Number of guests</label>
@@ -142,10 +141,12 @@ const ReservationForm = () => {
                     </select>
                 </fieldset>
 
-                <label htmlFor='comment'>Additional comments</label>
-                <textarea id='comment' name='comment' placeholder="I can't wait to eat here!" autoComplete='off'/>
+                <div>
+                    <label htmlFor='comment'>Additional comments (optional)</label>
+                    <textarea id='comment' name='comment' placeholder="I can't wait to eat here!" value={formData.comment} onChange={handleChange} autoComplete='off'/>
 
-                <button type='submit'></button>
+                    <button type='submit' className={styles.confirmBtn}>Confirm reservation</button>
+                </div>
             </form>
         </div>
     );
