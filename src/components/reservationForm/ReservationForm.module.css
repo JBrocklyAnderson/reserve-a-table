@@ -144,11 +144,28 @@
     padding: 0.75rem 1.5rem;
     font-weight: 600;
     color: black;
-    transition: box-shadow 0.2s ease;
+    transition:
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        outline 0.3s ease;
 }
 
 .confirmBtn:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.confirmBtn:disabled {
+    background-color: var(--stone);
+    color: transparent;
+    box-shadow: none;
+    cursor: not-allowed;
+    outline: 3px solid var(--error);
+}
+
+.errorMessage {
+    color: var(--error);
+    margin-left: 1rem;
 }
 
 @media screen and (min-width: 513px) {

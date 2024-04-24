@@ -16,8 +16,10 @@ html {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
   --lemon:#f4ce14;
+  --error: #f4143a;
   --olive:#495e57;
   --stone:#edefee;
+  --disabled: #9f9669;
 
   --markazi: 'Markazi Text', serif;
   --karla: 'Karla', sans-serif;
