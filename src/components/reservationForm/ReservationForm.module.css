@@ -43,6 +43,7 @@
 .form select {
     padding: 0.5rem;
     border-radius: 1rem;
+    margin-bottom: 1rem;
 }
 
 .form input:focus,

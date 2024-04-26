@@ -1,125 +1,50 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
+import { genTimeSlots, getDate } from '../utils/Timing';
+import useFormValidation from '../hooks/useFormValidation';
+
 import styles from './ReservationForm.module.css';
 
-const ReservationForm = () => {
-    // Retrieve today's date
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = (`0${today.getMonth() + 1}`).slice(-2); // Ensure a two-digit month numeral
-    const day = (`0${today.getDate()}`).slice(-2); // Ensure a two-digit day numeral
-    const currentDate = `${year}-${month}-${day}`; // Concatenate the variables to ensure today will always be represented as YYYY-MM-DD
 
-    // Track each of the inputs and their potential errors with state management
-    const [formData, setFormData] = useState({
+
+const today = getDate();
+// Generate a time table for Little Lemon's business hours
+const timeSlots = genTimeSlots(17, 20);
+
+
+const ReservationForm = () => {
+    // Set up initial form data
+    const initialData = {
         firstName: '',
         lastName: '',
         phone: '',
         email: '',
-        date: currentDate,
-        time: '',
+        date: today,
+        time: '5:00 PM',
         diningArea: 'indoors',
         seating: 'table',
         guestCount: 1,
         occasion: 'beingAlive',
-        comment: '',
-        errors: {
-            firstName: '',
-            lastName: '',
-            phone: '',
-            email: '',
-            date: '',
-            time: '',
-            guestCount: '',
-            comment: ''
-        }
-    });
-
-    // Track whether submission is disabled
-    const [submitDisabled, setSubmitDisabled] = useState(true); // Initially disabled
-
-    // Grab a reference to the input element for debouncing
-    const debounceTimeoutRef = useRef(null);
-
-    const handleChange = (e) => {
-        // Grab a destructured list of the input's properties
-        const { name, value } = e.target;
-
-        // Clear any existing debounce timeout to reset the debounce timer
-        clearTimeout(debounceTimeoutRef.current);
-
-        /* // Grab updated values from user input
-        const updatedValue = type === 'radio' ? (checked ? value : formData[name]) : value; */
-        // Trim white space from inputs
-        const trimmedValue = name !== 'comment' ? value.trim() : value;
-        // Update state with new values before validation to prevent error styling from appearing immediately
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            [name]: trimmedValue
-        }));
-
-        // Set up a new debounce timeout with error validation logic
-        debounceTimeoutRef.current = setTimeout(() => {
-            let newErrors = {...formData.errors}; // Never change state directly
-            let isValid = true;
-
-            // Provide immediate validation logic
-            switch (name) {
-                case 'firstName':
-                    newErrors.firstName = value.length > 50 || value.length < 2 ? 'First name must be less than 50 characters.' : '';
-                    break
-                case 'lastName':
-                    newErrors.lastName = value.length > 50 || value.length < 2 ? 'Last name must be less than 50 characters.' : '';
-                    break;
-                case 'phone':
-                    newErrors.phone = /^\d{3}-\d{3}-\d{4}$/.test(value) ? '' : 'Invalid phone format. Please use XXX-XXX-XXXX.';
-                    break;
-                case 'email':
-                    newErrors.email = value === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email format.'; // Don't register an error if optional input is blank
-                    break;
-                case 'guestCount':
-                    newErrors.guestCount = value >= 1 && value <= 12 ? '' : 'Parties of 13 or more must make a reservation with our event coordinator. Please call 438-555-0172.';
-                    break;
-                case 'comment':
-                    newErrors.comment = value === '' || value.length <= 500 ? '' : "Comments must be less than 500 characters, but we'd love to hear from you in an email: guestinput@littlelemon.com."; // Don't register an error if optional input is blank
-            };
-
-            // Determine if any new error has emerged
-            isValid = !Object.values(newErrors).some(error => error !== '');
-
-            // Update state with new errors (if any)
-            setFormData(prevFormData => ({
-                ...prevFormData,
-                errors: newErrors
-            }));
-
-            // Enable or disable submit button based on error status
-            setSubmitDisabled(!isValid);
-        }, 1000); // 1000 millisecond delay
+        comment: ''
     };
+    const [ formData, errors, handleChange ] = useFormValidation(initialData);
+    const [ submitDisabled, setSubmitDisabled ] = useState(true); // Initially disable submit
+
+    useEffect(() => {
+        // Check if errors are present
+        const errorsArePresent = Object.values(errors).some(error => error !== '')
+        // Disable submission when errors are present
+        setSubmitDisabled(errorsArePresent);
+    }, [errors])
+
+    useEffect(() => {
+        console.log('Errors updated', errors);
+    }, [errors]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         console.log(formData);
     };
-
-    // Generate a timeslot array
-    const genTimeSlots = (startHour, endHour) => {
-        const slots = [];
-
-        // Increment by one hour between given hours
-        for (let hour = startHour; hour <= endHour; hour++) {
-            // Increment by 15 minutes within each hour
-            for (let minutes = 0; minutes < 60; minutes += 30) {
-                const time = `${hour > 12 ? hour - 12 : hour}:${minutes.toString().padStart(2, '0')} ${hour >= 12 ? 'PM' : 'AM'}`;
-                slots.push(time); // Add each time slot to the array
-            }
-        }
-        return slots;
-    };
-
-    // Create a timeslot for Little Lemon's dinner hours
-    const timeSlots = genTimeSlots(17, 20);
 
     return (
         <div className={styles.layout}>
@@ -136,11 +61,11 @@ const ReservationForm = () => {
                         value={formData.firstName}
                         max={50}
                         onChange={handleChange}
-                        style={{ outline: formData.errors.firstName !== '' ? '3px solid var(--error)' : undefined }}
+                        style={{ outline: errors.firstName !== '' ? '3px solid var(--error)' : undefined }}
                         autoComplete='name'
                         required
                     />
-                    {formData.errors.firstName && <div className={styles.errorMessage}>{formData.errors.firstName}</div>}
+                    {errors.firstName && <div className={styles.errorMessage}>{errors.firstName}</div>}
                     <br />
 
                     <label htmlFor='lastName'>Last Name</label>
@@ -151,11 +76,11 @@ const ReservationForm = () => {
                         value={formData.lastName}
                         max={50}
                         onChange={handleChange}
-                        style={{ outline: formData.errors.lastName !== '' ? '3px solid var(--error)' : undefined }}
+                        style={{ outline: errors.lastName !== '' ? '3px solid var(--error)' : undefined }}
                         autoComplete='name'
                         required
                     />
-                    {formData.errors.lastName && <div className={styles.errorMessage}>{formData.errors.lastName}</div>}
+                    {errors.lastName && <div className={styles.errorMessage}>{errors.lastName}</div>}
                     <br />
 
                     <label htmlFor='phone'>Phone</label>
@@ -166,11 +91,11 @@ const ReservationForm = () => {
                         placeholder='XXX-XXX-XXX'
                         value={formData.phone}
                         onChange={handleChange}
-                        style={{ outline: formData.errors.phone !== '' ? '3px solid var(--error)' : undefined}}
+                        style={{ outline: errors.phone !== '' ? '3px solid var(--error)' : undefined}}
                         autoComplete='tel'
                         required
                     />
-                    {formData.errors.phone  && <div className={styles.errorMessage}>{formData.errors.phone}</div>}
+                    {errors.phone  && <div className={styles.errorMessage}>{errors.phone}</div>}
                     <br />
 
                     <label htmlFor='email'>Email (optional)</label>
@@ -180,10 +105,10 @@ const ReservationForm = () => {
                         name='email'
                         value={formData.email}
                         onChange={handleChange}
-                        style={{ outline: formData.errors.email !== '' ? '3px solid var(--error)' : undefined}}
+                        style={{ outline: errors.email !== '' ? '3px solid var(--error)' : undefined}}
                         autoComplete='email'
                     />
-                    {formData.errors.email && <div className={styles.errorMessage}>{formData.errors.email}</div>}
+                    {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
                 </fieldset>
 
                 <fieldset className={styles.prefs}>
@@ -195,8 +120,10 @@ const ReservationForm = () => {
                         name='date'
                         value={formData.date}
                         onChange={handleChange}
+                        style={{ outline: errors.date !== '' ? '3px solid var(--error)' : undefined}}
                         required
                     />
+                    {errors.date && <div className={styles.errorMessage}>{errors.date}</div>}
                     <br />
 
                     <label htmlFor='timePicker'>Time</label>
@@ -288,10 +215,10 @@ const ReservationForm = () => {
                         min={1}
                         max={12}
                         onChange={handleChange}
-                        style={{ outline: formData.errors.guestCount !== '' ? '3px solid var(--error)' : undefined}}
+                        style={{ outline: errors.guestCount !== '' ? '3px solid var(--error)' : undefined}}
                         required
                     />
-                    {formData.errors.guestCount && <div className={styles.errorMessage}>{formData.errors.guestCount}</div>}
+                    {errors.guestCount && <div className={styles.errorMessage}>{errors.guestCount}</div>}
                     <br />
 
                     <label htmlFor='occasion'>Occasion</label>
@@ -319,10 +246,10 @@ const ReservationForm = () => {
                         placeholder="I can't wait to eat here!"
                         value={formData.comment}
                         onChange={handleChange}
-                        style={{ outline: formData.errors.comment !== '' ? '3px solid var(--error)' : undefined }}
+                        style={{ outline: errors.comment !== '' ? '3px solid var(--error)' : undefined }}
                         autoComplete='off'
                     />
-                    {formData.errors.comment && <div className={styles.errorMessage}>{formData.errors.comment}</div>}
+                    {errors.comment && <div className={styles.errorMessage}>{errors.comment}</div>}
 
                     <button
                         type='submit'
