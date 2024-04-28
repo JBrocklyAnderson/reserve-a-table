@@ -38,5 +38,5 @@
 
 .article > p:nth-of-type(2) {
     color: var(--lemon);
-    font-weight: 500;
+    font-weight: 900;
 }

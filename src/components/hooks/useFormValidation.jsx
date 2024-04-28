@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getDate } from '../utils/timing';
+import { getDate } from '../utils/fakeAPI';
 
 
 
@@ -19,16 +19,29 @@ const useFormValidation = (initialData) => {
 
     const validateField = (name, value) => {
         let newErrors = { ...errors };
+        let isEmpty = value.trim() === '';
         // Provide  validation logic
         switch (name) {
             case 'firstName':
-                newErrors.firstName = value.length > 50 ? 'First name must be less than 50 characters.' : '';
+                if (isEmpty) {
+                    newErrors.firstName = 'This field is required';
+                } else {
+                    newErrors.firstName = value.length > 50 ? 'First name must be less than 50 characters.' : '';
+                }
                 break
             case 'lastName':
-                newErrors.lastName = value.length > 50 ? 'Last name must be less than 50 characters.' : '';
+                if (isEmpty) {
+                    newErrors.lastName = 'This field is required';
+                } else {
+                    newErrors.lastName = value.length > 50 ? 'Last name must be less than 50 characters.' : '';
+                }
                 break;
             case 'phone':
-                newErrors.phone = !/^\d{3}-\d{3}-\d{4}$/.test(value) ? 'Invalid phone format. Please use XXX-XXX-XXXX.' : '';
+                if (isEmpty) {
+                    newErrors.phone = 'This field is required';
+                } else {
+                    newErrors.phone = !/^\d{3}-\d{3}-\d{4}$/.test(value) ? 'Invalid phone format. Please use XXX-XXX-XXXX.' : '';
+                }
                 break;
             case 'email':
                 newErrors.email = value !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email format.'; // Don't register an error if optional input is blank
@@ -51,6 +64,11 @@ const useFormValidation = (initialData) => {
         setErrors(newErrors);
     };
 
+    const handleBlur = (e) => {
+        const { name, value } = e.target;
+        validateField(name, value);
+    }
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         // Trim white space from required inputs
@@ -64,7 +82,7 @@ const useFormValidation = (initialData) => {
         validateField(name, value);
     };
 
-    return [ formData, errors, handleChange ];
+    return [ formData, errors, handleBlur, handleChange ];
 };
 
 export default useFormValidation;

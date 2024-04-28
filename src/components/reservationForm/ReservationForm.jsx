@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ReservationConfirmed from '../reservationConfirmed/ReservationConfirmed';
 import useFormValidation from '../hooks/useFormValidation';
-import { genTimeSlots, getDate } from '../utils/timing';
+import { genTimeSlots, getDate } from '../utils/fakeAPI';
 import styles from './ReservationForm.module.css';
 
 
 
 const today = getDate();
-// Generate a time table for Little Lemon's business hours
-const timeSlots = genTimeSlots(17, 20);
+
 
 const ReservationForm = () => {
     // Set up initial form data
@@ -26,9 +24,12 @@ const ReservationForm = () => {
         occasion: 'beingAlive',
         comment: ''
     };
-    const [ formData, errors, handleChange ] = useFormValidation(initialData);
+    const [ formData, errors, handleBlur, handleChange ] = useFormValidation(initialData);
     const [ submitDisabled, setSubmitDisabled ] = useState(true); // Initially disable submit
     const [ submitted, setSubmitted ] = useState(false);
+
+    // Generate a time table for Little Lemon's business hours
+    const timeSlots = genTimeSlots(17, 20, new Date(formData.date));
 
     useEffect(() => {
         // Check if errors are present
@@ -71,6 +72,7 @@ const ReservationForm = () => {
                         name='firstName'
                         value={formData.firstName}
                         max={50}
+                        onBlur={handleBlur}
                         onChange={handleChange}
                         style={{ outline: errors.firstName !== '' ? '3px solid var(--error)' : undefined }}
                         autoComplete='name'
@@ -86,6 +88,7 @@ const ReservationForm = () => {
                         name='lastName'
                         value={formData.lastName}
                         max={50}
+                        onBlur={handleBlur}
                         onChange={handleChange}
                         style={{ outline: errors.lastName !== '' ? '3px solid var(--error)' : undefined }}
                         autoComplete='name'
@@ -101,6 +104,7 @@ const ReservationForm = () => {
                         name='phone'
                         placeholder='XXX-XXX-XXX'
                         value={formData.phone}
+                        onBlur={handleBlur}
                         onChange={handleChange}
                         style={{ outline: errors.phone !== '' ? '3px solid var(--error)' : undefined}}
                         autoComplete='tel'
