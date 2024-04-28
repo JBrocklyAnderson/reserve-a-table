@@ -1,6 +1,5 @@
 import { useState } from 'react';
-
-import { getDate } from '../utils/Timing';
+import { getDate } from '../utils/timing';
 
 
 

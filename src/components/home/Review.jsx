@@ -1,6 +1,4 @@
-import React from 'react';
 import styles from './Review.module.css';
-
 // Import avatars
 import engineer from '../../assets/images/webp/engineer.webp';
 import firefighter from '../../assets/images/webp/firefighter.webp';

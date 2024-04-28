@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Special.module.css';
 
 // Import images

@@ -1,0 +1,44 @@
+.success {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 75ch;
+    font-family: var(--karla);
+    color: var(--olive);
+    font-weight: bold;
+}
+
+.success > *:not(div) {
+    margin: 1rem;
+}
+
+.success > div {
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 1rem;
+}
+
+.success > h2 {
+    font-family: var(--markazi);
+    color: var(--lemon);
+    font-size: 4rem;
+    line-height: 0.75;
+}
+
+.success > a {
+    display: inline-block;
+    text-wrap: balance;
+    background-color: var(--olive);
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: var(--stone);
+    transition: box-shadow 0.2s ease;
+}
+
+.success > a:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}

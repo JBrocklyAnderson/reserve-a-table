@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Nav.module.css';
 import Logo from '../../assets/images/svg/Logo.svg';
 import { placeholderLinkAlert } from '../../App';

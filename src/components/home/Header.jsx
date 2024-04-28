@@ -1,7 +1,8 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import HeaderImg from '../../assets/images/postcompress/HeaderImg-min.jpg';
-import { Link } from 'react-router-dom';
+
+
 
 const Header = () => {
     return (

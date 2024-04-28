@@ -1,7 +1,9 @@
-// Grab today's date
+// Grab today
 export const getDate = () => {
     const today = new Date();
-    return today.toISOString().slice(0, 10); // Format as 'YYYY-MM-DD'
+    const offset = today.getTimezoneOffset() * 60000; // Offset in milliseconds
+    const localISOTime = new Date(today.getTime() - offset).toISOString();
+    return localISOTime.slice(0, 10); // Format as 'YYYY-MM-DD'
 };
 
 // Generate a timeslot array

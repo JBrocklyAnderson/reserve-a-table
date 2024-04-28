@@ -1,4 +1,3 @@
-import React from 'react';
 import Special from './Special';
 import styles from './Specials.module.css';
 

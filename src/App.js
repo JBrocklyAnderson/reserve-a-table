@@ -5,7 +5,7 @@ import About from './components/about/About';
 import ReservationForm from './components/reservationForm/ReservationForm';
 import ReservationConfirmed from './components/reservationConfirmed/ReservationConfirmed';
 import Footer from './components/common/Footer';
-import Scroll from './components/utils/Scroll';
+import Scroll from './components/context/Scroll';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 

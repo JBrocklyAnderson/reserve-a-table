@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-
-import { genTimeSlots, getDate } from '../utils/Timing';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import ReservationConfirmed from '../reservationConfirmed/ReservationConfirmed';
 import useFormValidation from '../hooks/useFormValidation';
-
+import { genTimeSlots, getDate } from '../utils/timing';
 import styles from './ReservationForm.module.css';
 
 
@@ -10,7 +10,6 @@ import styles from './ReservationForm.module.css';
 const today = getDate();
 // Generate a time table for Little Lemon's business hours
 const timeSlots = genTimeSlots(17, 20);
-
 
 const ReservationForm = () => {
     // Set up initial form data
@@ -29,6 +28,7 @@ const ReservationForm = () => {
     };
     const [ formData, errors, handleChange ] = useFormValidation(initialData);
     const [ submitDisabled, setSubmitDisabled ] = useState(true); // Initially disable submit
+    const [ submitted, setSubmitted ] = useState(false);
 
     useEffect(() => {
         // Check if errors are present
@@ -44,7 +44,18 @@ const ReservationForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
+        setSubmitted(true);
     };
+
+    if (submitted) {
+        return (
+            <>
+                <ReservationConfirmed formData={formData} />
+            </>
+        );
+    };
+
+
 
     return (
         <div className={styles.layout}>
@@ -227,14 +238,14 @@ const ReservationForm = () => {
                         name='occasion'
                         onChange={handleChange}
                     >
-                        <option value='beingAlive'>Being Alive</option>
-                        <option value='anniversary'>Anniversary</option>
-                        <option value='birthday'>Birthday</option>
+                        <option value='Being Alive'>Being Alive</option>
+                        <option value='Anniversary'>Anniversary</option>
+                        <option value='Birthday'>Birthday</option>
                         <option value='Engagement'>Engagement</option>
                         <option value='Graduation'>Graduation</option>
-                        <option value='newJob'>New Job</option>
-                        <option value='promotion'>Promotion</option>
-                        <option value='retirement'>Retirement</option>
+                        <option value='New Job'>New Job</option>
+                        <option value='Promotion'>Promotion</option>
+                        <option value='Retirement'>Retirement</option>
                     </select>
                 </fieldset>
 

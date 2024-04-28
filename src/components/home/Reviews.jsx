@@ -1,4 +1,3 @@
-import React from 'react';
 import Review from './Review';
 import styles from './Reviews.module.css';
 
