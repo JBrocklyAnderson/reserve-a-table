@@ -1,12 +1,12 @@
 import styles from './Review.module.css';
 // Import avatars
-import engineer from '../../assets/images/webp/engineer.webp';
-import firefighter from '../../assets/images/webp/firefighter.webp';
-import welder from '../../assets/images/webp/welder.webp';
-import priestess from '../../assets/images/webp/priestess.webp';
-import archaeologist from '../../assets/images/webp/archaeologist.webp';
-import doctor from '../../assets/images/webp/doctor.webp';
-import teacher from '../../assets/images/webp/teacher.webp';
+import engineer from '../../assets/images/postcompress/engineer-min.jpg';
+import firefighter from '../../assets/images/postcompress/firefighter-min.jpg';
+import welder from '../../assets/images/postcompress/welder-min.jpg';
+import priestess from '../../assets/images/postcompress/priestess-min.jpg';
+import archaeologist from '../../assets/images/postcompress/archaeologist-min.jpg';
+import doctor from '../../assets/images/postcompress/doctor-min.jpg';
+import teacher from '../../assets/images/postcompress/teacher-min.jpg';
 
 const Review = ({ data }) => {
     let imgSrc;

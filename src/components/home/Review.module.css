@@ -11,11 +11,12 @@
 
 .card > img {
     position: absolute;
-    left: 50%;
+    left: 65%;
     bottom: 0;
     width: 5rem;
     height: 5rem;
-    border-radius: 50%;
+    border-radius: 50% 50%0 50%;
+    outline: 8px solid var(--lemon);
 }
 
 .card span {
