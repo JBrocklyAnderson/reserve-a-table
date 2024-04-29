@@ -5,6 +5,7 @@
     font-family: var(--karla);
 }
 
+/* Heading */
 .layout > h1 {
     font-family: var(--markazi);
     font-size: 2.5rem;
@@ -14,12 +15,14 @@
     color: var(--olive);
 }
 
+/* Subheading */
 .layout > h2 {
     font-size: 1.25rem;
     color: rgba(0,0,0,0.75);
     line-height: 1.5;
 }
 
+/* Input groupings */
 .form > fieldset {
     border: 1px solid var(--olive);
     margin: 1rem;
@@ -28,8 +31,14 @@
     line-height: 2;
 }
 
+/* Every label but "Additional comments" */
 .form label:not([for='comment']) {
     margin: 1rem;
+}
+
+.form .radioLabel[type='radio'] {
+    margin: 0 0 0 1rem;
+    padding: 0;
 }
 
 .form input,

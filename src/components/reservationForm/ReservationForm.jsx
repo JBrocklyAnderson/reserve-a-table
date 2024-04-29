@@ -8,7 +8,6 @@ import styles from './ReservationForm.module.css';
 
 const today = getDate();
 
-
 const ReservationForm = () => {
     // Set up initial form data
     const initialData = {
@@ -166,7 +165,7 @@ const ReservationForm = () => {
                                 onChange={handleChange}
                                 checked={formData.diningArea === 'indoors'}
                             />
-                            <label htmlFor='indoors'>Indoors</label>
+                            <label className={styles.radioLabel} htmlFor='indoors'>Indoors</label>
                         </div>
 
                         <div className={styles.flex}>
@@ -178,7 +177,7 @@ const ReservationForm = () => {
                                 onChange={handleChange}
                                 checked={formData.diningArea === 'terrace'}
                             />
-                            <label htmlFor='terrace'>Terrace</label>
+                            <label className={styles.radioLabel} htmlFor='terrace'>Terrace</label>
                         </div>
                     </fieldset>
 
@@ -193,7 +192,7 @@ const ReservationForm = () => {
                                 onChange={handleChange}
                                 checked={formData.seating === 'table'}
                             />
-                            <label htmlFor='table'>Table</label>
+                            <label className={styles.radioLabel} htmlFor='table'>Table</label>
                         </div>
 
                         <div className={styles.flex}>
@@ -205,7 +204,7 @@ const ReservationForm = () => {
                                 onChange={handleChange}
                                 checked={formData.seating === 'booth'}
                             />
-                            <label htmlFor='booth'>Booth</label>
+                            <label className={styles.radioLabel} htmlFor='booth'>Booth</label>
                         </div>
 
                         <div className={styles.flex}>
@@ -217,7 +216,7 @@ const ReservationForm = () => {
                                 onChange={handleChange}
                                 checked={formData.seating === 'bar'}
                             />
-                            <label htmlFor='bar'>Bar</label>
+                            <label className={styles.radioLabel} htmlFor='bar'>Bar</label>
                         </div>
                     </fieldset>
 

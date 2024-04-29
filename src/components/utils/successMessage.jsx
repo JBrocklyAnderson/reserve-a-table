@@ -7,7 +7,7 @@ export const successMessage = (formData) => {
     // Handle occasion messaging
     let occasionMessage = '';
     switch (occasion) {
-        case 'Being Alive':
+        case 'beingAlive':
             occasionMessage = "Cheers to being alive!";
             break;
         case 'Anniversary':

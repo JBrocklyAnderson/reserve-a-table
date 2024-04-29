@@ -26,11 +26,9 @@ export const genTimeSlots = (startHour, endHour, date) => {
             if (random() < 0.5) { // Replicate the nonexistence of certain time slots due to reservations made by others
                 const time = `${hour}:${minutes.toString().padStart(2, '0')}`;
                 slots.push(time);
-            }
-            /* const time = `${hour > 12 ? hour - 12 : hour}:${minutes.toString().padStart(2, '0')} ${hour >= 12 ? 'PM' : 'AM'}`;
-            slots.push(time); // Add each time slot to the array */
-        }
-    }
+            };
+        };
+    };
     return slots;
 };
 
