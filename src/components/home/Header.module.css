@@ -10,7 +10,8 @@
     padding: 1rem;
     flex-direction: column; /* Ensure regular content flow */
     align-items: baseline; /* Prevent items from stretching */
-    margin-left: auto; /* Make sure that the element floats to the middle of the screen when the space it occupies grows bigger than itself */
+    margin-left: auto; /* Make sure that the element floats to the middle of the screen
+                         when the space it occupies grows bigger than itself */
 }
 
 .headerTxt {
@@ -43,11 +44,26 @@
     padding: 0.75rem 1.5rem;
     font-weight: 600;
     color: black;
-    transition: box-shadow 0.2s ease;
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .headerBtn:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.headerBtn:active {
+    background-color: var(--stone);
+    color: var(--olive);
+    /* Emulate a font-weight transition */
+    text-shadow:
+        -0.25px -0.25px 0 var(--olive),
+        0.25px -0.25px 0 var(--olive),
+        -0.25px 0.25px 0 var(--olive),
+        0.25px 0.25px 0 var(--olive);
 }
 
 .headerImg {
