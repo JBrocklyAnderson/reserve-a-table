@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './Nav.module.css';
 import Logo from '../../assets/images/svg/Logo.svg';
-import { placeholderLinkAlert } from '../../App';
+import { placeholderLinkAlert } from '../utils/utilityFunction';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
@@ -13,7 +13,7 @@ const Nav = () => {
     }
 
     return (
-        <nav className={styles.navBar}>
+        <nav className={styles.navBar} data-testid='nav'>
             <div className={styles.mobile}>
                 <Link to='/'>
                     <img src={Logo} alt='Little Lemon Logo' />

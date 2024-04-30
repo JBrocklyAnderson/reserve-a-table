@@ -17,6 +17,8 @@
     font-size: 4rem;
     font-weight: 500;
     color: var(--lemon);
+    line-height: 0.55;
+    margin-bottom: 1rem;
 }
 
 .aboutTextBlock > h2 {
@@ -24,6 +26,8 @@
     font-size: 2.5rem;
     font-weight: 400;
     color: var(--lemon);
+    line-height: 0.75;
+    margin-bottom: 1rem;
 }
 
 .aboutTextBlock > h3 {

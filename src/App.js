@@ -1,22 +1,13 @@
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Scroll from './components/context/Scroll';
 import Nav from './components/common/Nav';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import ReservationForm from './components/reservationForm/ReservationForm';
 import ReservationConfirmed from './components/reservationConfirmed/ReservationConfirmed';
 import Footer from './components/common/Footer';
-import Scroll from './components/context/Scroll';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import React from 'react';
+import './App.css';
 
-export const preventDefaultAction = (e) => {
-  e.preventDefault();
-};
-
-export const placeholderLinkAlert = (e) => {
-  e.preventDefault();
-  alert('This page is coming soon!');
-};
 
 function App() {
   return (

@@ -15,8 +15,9 @@
 }
 
 .footer img:first-of-type {
-    width: 3rem;
+    width: 5rem;
     align-self: center;
+    margin-top: 0.25rem;
 }
 
 .newsletter > label {
@@ -88,7 +89,7 @@
 }
 
 .linkSection a {
-    line-height: 1.5;
+    line-height: 2;
 }
 
 .linkSection a:hover {

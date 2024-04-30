@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import { placeholderLinkAlert } from '../../App';
+import { placeholderLinkAlert } from '../utils/utilityFunction';
 import styles from './Footer.module.css';
-import smallLogo from '../../assets/images/png/smallLogo.png'
+import smallLogo from '../../assets/images/png/logo-white.png'
 
 
 
 const Footer = () => {
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} data-testid='footer'>
             <div>
                 <Link to='/'>
                     <img src={smallLogo} alt='Logo' />
