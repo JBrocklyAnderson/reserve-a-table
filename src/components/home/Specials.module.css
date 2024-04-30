@@ -17,4 +17,7 @@
     margin: 2rem auto 1rem auto;
 }
 
-/* @media screen and (min-width: ) */
+.sectionTitle::selection {
+    background-color: var(--olive);
+    color: var(--stone);
+}

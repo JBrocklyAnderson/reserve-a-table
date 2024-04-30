@@ -11,14 +11,15 @@
     z-index: 20;
 }
 
+.navBar img::selection {
+    background-color: var(--yellow);
+}
+
 .mobile {
     display: flex;
     justify-content: space-between;
 }
 
-.open {
-    display: flex;
-}
 
 .menu {
     display: block;
@@ -30,6 +31,8 @@
     transition: background-color 0.3s ease;
 }
 
+/*  Diagnose why this selector must be placed after the `.menu`
+    selector in order for the menu to open */
 .menu:active {
     background-color: var(--lemon);
     border-radius: 50%;
@@ -41,6 +44,12 @@
     align-items: center;
     display: none; /* Hide initially on mobile devices */
     min-height: fit-content;
+}
+
+/*  Diagnose why this selector must be placed after the `.links`
+    selector in order for the menu to open */
+.open {
+    display: flex;
 }
 
 .link {
@@ -66,6 +75,11 @@
     border-radius: 1rem;
 }
 
+.link::selection {
+    background-color: var(--olive);
+    color: var(--stone);
+}
+
 .navbarBtn {
     background-color: var(--lemon);
     border-radius: 2rem;
@@ -89,6 +103,11 @@
 .navbarBtn:active {
     background-color: var(--olive);
     color: var(--lemon);
+}
+
+.navbarBtn::selection {
+    background-color: var(--olive);
+    color: var(--stone);
 }
 
 @media screen and (min-width: 769px) {

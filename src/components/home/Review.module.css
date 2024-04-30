@@ -22,3 +22,9 @@
 .card span {
     color: var(--lemon);
 }
+
+.card > *::selection,
+.card > div span::selection {
+    background-color: var(--lemon);
+    color: var(--olive);
+}

@@ -13,6 +13,10 @@
     z-index: 10;
 }
 
+.special > img::selection {
+    background-color: var(--lemon);
+}
+
 .article {
     background-color: var(--stone);
     width: 20rem;
@@ -20,6 +24,7 @@
     padding: 1rem;
 }
 
+/* Dish name */
 .article > h2 {
     color: var(--olive);
     font-family: var(--karla);
@@ -27,6 +32,7 @@
     font-weight: 700;
 }
 
+/* Description */
 .article > p {
     font-family: var(--karla);
 }
@@ -36,7 +42,26 @@
     line-height: 1.5;
 }
 
+/* Price */
 .article > p:nth-of-type(2) {
     color: var(--lemon);
     font-weight: 900;
+    font-size: 1.75rem;
+    text-align: right;
+    margin-top: -1.5rem;
+    background: -webkit-linear-gradient(
+        289deg,
+        rgba(244, 206, 20, 1) 0%,
+        rgba(244, 206, 20, 1) 79%,
+        rgba(253, 247, 216, 1) 82%,
+        rgba(244, 206, 20, 1) 85%,
+        rgba(244, 206, 20, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.article > *::selection {
+    background-color: var(--olive);
+    color: var(--stone);
 }

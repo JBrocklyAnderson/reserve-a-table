@@ -14,10 +14,14 @@
     gap: 1rem;
 }
 
-.footer img:first-of-type {
+.footer img {
     width: 5rem;
     align-self: center;
     margin-top: 0.25rem;
+}
+
+.footer img::selection {
+    background-color: var(--lemon);
 }
 
 .newsletter > label {
@@ -94,6 +98,24 @@
 
 .linkSection a:hover {
     text-decoration: underline;
+}
+
+.newsletter label::selection,
+.newsletter input::selection,
+.linkSection h2::selection,
+.linkSection a::selection {
+    background-color: var(--lemon);
+    color: var(--olive);
+}
+
+
+.linkSection a::selection {
+    /* Emulate a font-weight unavailable for the pseudoclass */
+    text-shadow:
+        -0.25px -0.25px 0 var(--olive),
+        0.25px -0.25px 0 var(--olive),
+        -0.25px 0.25px 0 var(--olive),
+        0.25px 0.25px 0 var(--olive);
 }
 
 @media screen and (min-width: 513px) {

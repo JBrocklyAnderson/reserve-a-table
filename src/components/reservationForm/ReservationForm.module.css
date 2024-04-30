@@ -5,6 +5,11 @@
     font-family: var(--karla);
 }
 
+.layout *::selection {
+    background-color: var(--olive);
+    color: var(--lemon);
+}
+
 /* Heading */
 .layout > h1 {
     font-family: var(--markazi);

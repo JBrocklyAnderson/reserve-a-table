@@ -35,6 +35,21 @@
     line-height: 2;
 }
 
+.headerTxt::selection,
+.location::selection,
+.headerInfo::selection {
+    background-color: var(--lemon);
+    color: var(--olive);
+}
+
+.headerInfo::selection {
+    /* Emulate a font-weight unavailable for the pseudoclass */
+    text-shadow:
+        -0.25px -0.25px 0 var(--olive),
+        0.25px -0.25px 0 var(--olive),
+        -0.25px 0.25px 0 var(--olive),
+        0.25px 0.25px 0 var(--olive);
+}
 
 .headerBtn {
     display: inline-block;
@@ -66,8 +81,17 @@
         0.25px 0.25px 0 var(--olive);
 }
 
+.headerBtn::selection {
+    background-color: var(--olive);
+    color: var(--stone);
+}
+
 .headerImg {
     width: 50%;
     object-fit: cover;
     object-position: center;
+}
+
+.headerImg::selection {
+    background-color: var(--lemon);
 }

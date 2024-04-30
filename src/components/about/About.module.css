@@ -45,3 +45,27 @@
     text-indent: 2.5rem;
     margin-block-end: 1rem;
 }
+
+.aboutTextBlock > *::selection,
+.aboutTextBlock i::selection {
+    background-color: var(--stone);
+    color: var(--olive);
+}
+.aboutTextBlock a {
+    color: var(--lemon);
+}
+
+.aboutTextBlock a:hover {
+    text-decoration: underline;
+}
+
+.aboutTextBlock a::selection {
+    background-color: var(--lemon);
+    color: var(--olive);
+    /* Emulate a font-weight unavailable for the pseudoclass */
+    text-shadow:
+        -0.25px -0.25px 0 var(--olive),
+        0.25px -0.25px 0 var(--olive),
+        -0.25px 0.25px 0 var(--olive),
+        0.25px 0.25px 0 var(--olive);
+}
