@@ -49,16 +49,21 @@
     font-size: 1.75rem;
     text-align: right;
     margin-top: -1.5rem;
-    background: -webkit-linear-gradient(
-        289deg,
-        rgba(244, 206, 20, 1) 0%,
-        rgba(244, 206, 20, 1) 75%,
-        rgba(250, 231, 138, 1) 82%,
-        rgba(244, 206, 20, 1) 89%,
-        rgba(244, 206, 20, 1) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
+
+@supports (-webkit-background-clip: text) {
+    .article > p:nth-of-type(2) {
+        background: -webkit-linear-gradient(
+            289deg,
+            rgba(244, 206, 20, 1) 0%,
+            rgba(244, 206, 20, 1) 75%,
+            rgba(250, 231, 138, 1) 82%,
+            rgba(244, 206, 20, 1) 89%,
+            rgba(244, 206, 20, 1) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 .article > *::selection {
