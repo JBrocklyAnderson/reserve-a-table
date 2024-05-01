@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PathConstants from '../../routes/pathConstants';
 import { placeholderLinkAlert } from '../utils/utilityFunction';
 import styles from './Footer.module.css';
 import smallLogo from '../../assets/images/png/logo-white.png'
@@ -9,7 +10,7 @@ const Footer = () => {
     return (
         <footer className={styles.footer} data-testid='footer'>
             <div>
-                <Link to='/'>
+                <Link to={PathConstants.HOME}>
                     <img src={smallLogo} alt='Logo' />
                 </Link>
                 <div className={styles.newsletter}>
@@ -61,19 +62,19 @@ const Footer = () => {
                     <nav>
                         <ul>
                             <li>
-                                <Link to='/reserve-a-table'>Reserve a table</Link>
+                                <Link to={PathConstants.RESERVE_A_TABLE}>Reserve a table</Link>
                             </li>
                             <li>
-                                <Link to='/' onClick={placeholderLinkAlert}>Order online</Link>
+                                <Link to={PathConstants.HOME} onClick={placeholderLinkAlert}>Order online</Link>
                             </li>
                             <li>
-                                <Link to='/' onClick={placeholderLinkAlert}>Menu</Link>
+                                <Link to={PathConstants.HOME} onClick={placeholderLinkAlert}>Menu</Link>
                             </li>
                             <li>
-                                <Link to='/' onClick={placeholderLinkAlert}>Reviews</Link>
+                                <Link to={PathConstants.HOME} onClick={placeholderLinkAlert}>Reviews</Link>
                             </li>
                             <li>
-                                <Link to='/' onClick={placeholderLinkAlert}>FAQ</Link>
+                                <Link to={PathConstants.HOME} onClick={placeholderLinkAlert}>FAQ</Link>
                             </li>
                         </ul>
                     </nav>
@@ -84,13 +85,13 @@ const Footer = () => {
                     <nav>
                         <ul>
                             <li>
-                                <Link to='/our-story'>Our Story</Link>
+                                <Link to={PathConstants.OUR_STORY}>Our Story</Link>
                             </li>
                             <li>
-                                <Link to='/our-story'>Our Chefs</Link>
+                                <Link to={PathConstants.OUR_STORY}>Our Chefs</Link>
                             </li>
                             <li>
-                                <Link to='/our-story'>Our Menu</Link>
+                                <Link to={PathConstants.OUR_STORY}>Our Menu</Link>
                             </li>
                         </ul>
                     </nav>
@@ -101,10 +102,10 @@ const Footer = () => {
                     <nav>
                         <ul>
                             <li>
-                                <Link to='/' onClick={placeholderLinkAlert}>Contact</Link>
+                                <Link to={PathConstants.HOME} onClick={placeholderLinkAlert}>Contact</Link>
                             </li>
                             <li>
-                                <Link to='/' onClick={placeholderLinkAlert}>FAQ</Link>
+                                <Link to={PathConstants.HOME} onClick={placeholderLinkAlert}>FAQ</Link>
                             </li>
                         </ul>
                     </nav>

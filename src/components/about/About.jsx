@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PathConstants from '../../routes/pathConstants';
 import styles from './About.module.css';
 
 
@@ -20,7 +21,7 @@ const About = () => {
                 <p>Located in the vibrant heart of Chicago, The Little Lemon is not just about exceptional dining; it is an experience for the senses. The restaurant’s decor, an eclectic blend of old-world charm and contemporary chic, sets the stage for an unforgettable evening. From the delicate clinking of fine glassware to the soft undertones of jazz lifting smiles and conversation from every seat in the house, dining with us is a symphony of sensory delights.</p>
                 <h2>A Commitment to Excellence</h2>
                 <p>We are more than a restaurant; we are a family—a collective of passionate individuals dedicated to the art of hospitality. It is our pleasure to serve you and to ensure that your time with us is nothing short of extraordinary.</p>
-                <p><Link to='/reserve-a-table'>Join us</Link> at The Little Lemon, where every meal is a celebration, every bite a journey, and every moment a memory in the making.</p>
+                <p><Link to={PathConstants.RESERVE_A_TABLE}>Join us</Link> at The Little Lemon, where every meal is a celebration, every bite a journey, and every moment a memory in the making.</p>
                 <p>Benvenuti e Buon Appetito!</p>
             </div>
         </section>

@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PathConstants from '../../routes/pathConstants';
+import { placeholderLinkAlert } from '../utils/utilityFunction';
 import styles from './Nav.module.css';
 import Logo from '../../assets/images/svg/Logo.svg';
-import { placeholderLinkAlert } from '../utils/utilityFunction';
-import { Link } from 'react-router-dom';
+
+
 
 const Nav = () => {
     {/* Initialize state to track menu toggle */}
@@ -34,19 +37,19 @@ const Nav = () => {
 
             <ul className={`${styles.links} ${isOpen ? styles.open : ''}`}>
                 <li className={styles.linkPadding}>
-                    <Link to='/' className={styles.link}>Home</Link>
+                    <Link to={PathConstants.HOME} className={styles.link}>Home</Link>
                 </li>
                 <li className={styles.linkPadding}>
-                    <Link to='/our-story' className={styles.link}>About</Link>
+                    <Link to={PathConstants.OUR_STORY} className={styles.link}>About</Link>
                 </li>
                 <li className={styles.linkPadding}>
-                    <Link to='/menu' className={styles.link} onClick={placeholderLinkAlert}>Menu</Link>
+                    <Link to={PathConstants.HOME} className={styles.link} onClick={placeholderLinkAlert}>Menu</Link>
                 </li>
                 <li className={styles.linkPadding}>
-                    <Link to='/reserve-a-table' className={styles.link}>Reservations</Link>
+                    <Link to={PathConstants.RESERVE_A_TABLE} className={styles.link}>Reservations</Link>
                 </li>
                 <li className={styles.linkPadding}>
-                    <Link to='/order-online' className={styles.navbarBtn} onClick={placeholderLinkAlert}>Order Online</Link>
+                    <Link to={PathConstants.RESERVATION_CONFIRMED} className={styles.navbarBtn} onClick={placeholderLinkAlert}>Order Online</Link>
                 </li>
             </ul>
         </nav>
