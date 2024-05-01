@@ -52,9 +52,9 @@
     background: -webkit-linear-gradient(
         289deg,
         rgba(244, 206, 20, 1) 0%,
-        rgba(244, 206, 20, 1) 79%,
-        rgba(253, 247, 216, 1) 82%,
-        rgba(244, 206, 20, 1) 85%,
+        rgba(244, 206, 20, 1) 75%,
+        rgba(250, 231, 138, 1) 82%,
+        rgba(244, 206, 20, 1) 89%,
         rgba(244, 206, 20, 1) 100%
     );
     -webkit-background-clip: text;
