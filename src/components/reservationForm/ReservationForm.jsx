@@ -5,7 +5,6 @@ import { genTimeSlots, getDate } from '../utils/fakeAPI';
 import styles from './ReservationForm.module.css';
 
 
-
 const today = getDate();
 
 const ReservationForm = () => {
