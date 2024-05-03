@@ -36,9 +36,7 @@ const ReservationForm = () => {
         setSubmitDisabled(errorsArePresent);
     }, [errors])
 
-    useEffect(() => {
-        console.log('Errors updated', errors);
-    }, [errors]);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

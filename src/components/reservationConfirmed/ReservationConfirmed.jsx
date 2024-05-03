@@ -41,6 +41,6 @@ const ReservationConfirmed = ({ formData }) => {
             <Link to='/'>Back to main</Link>
         </section>
     );
-}
+};
 
 export default ReservationConfirmed;
