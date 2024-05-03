@@ -8,7 +8,7 @@ import smallLogo from '../../assets/images/png/logo-white.png'
 
 const Footer = () => {
     return (
-        <footer className={styles.footer} data-testid='footer'>
+        <footer className={styles.footer}>
             <div>
                 <Link to={PathConstants.HOME}>
                     <img src={smallLogo} alt='Logo' />

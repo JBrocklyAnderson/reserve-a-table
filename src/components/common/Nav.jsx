@@ -16,7 +16,7 @@ const Nav = () => {
     }
 
     return (
-        <nav className={styles.navBar} data-testid='nav'>
+        <nav className={styles.navBar}>
             <div className={styles.mobile}>
                 <Link to='/'>
                     <img src={Logo} alt='Little Lemon Logo' />
@@ -43,7 +43,7 @@ const Nav = () => {
                     <Link to={PathConstants.OUR_STORY} className={styles.link}>About</Link>
                 </li>
                 <li className={styles.linkPadding}>
-                    <Link to={PathConstants.HOME} className={styles.link} onClick={placeholderLinkAlert}>Menu</Link>
+                    <Link to={PathConstants.HOME} className={styles.link} onClick={placeholderLinkAlert} data-testid='menuLink'>Menu</Link>
                 </li>
                 <li className={styles.linkPadding}>
                     <Link to={PathConstants.RESERVE_A_TABLE} className={styles.link}>Reservations</Link>
