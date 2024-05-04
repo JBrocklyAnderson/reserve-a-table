@@ -34,9 +34,7 @@ const ReservationForm = () => {
         const errorsArePresent = Object.values(errors).some(error => error !== '')
         // Disable submission when errors are present
         setSubmitDisabled(errorsArePresent);
-    }, [errors])
-
-
+    }, [errors]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -46,9 +44,7 @@ const ReservationForm = () => {
 
     if (submitted) {
         return (
-            <>
-                <ReservationConfirmed formData={formData} />
-            </>
+            <ReservationConfirmed formData={formData} />
         );
     };
 

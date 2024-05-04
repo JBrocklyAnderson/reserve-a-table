@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { successMessage } from '../utils/successMessage';
 import styles from './ReservationConfirmed.module.css';

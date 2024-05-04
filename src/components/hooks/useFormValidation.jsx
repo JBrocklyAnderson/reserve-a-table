@@ -60,6 +60,9 @@ const useFormValidation = (initialData) => {
                 break;
             case 'comment':
                 newErrors.comment = value === '' || value.length <= 500 ? '' : "Comments must be less than 500 characters, but we'd love to hear from you in an email: guestinput@littlelemon.com."; // Don't register an error if optional input is blank
+                break;
+            default:
+                break;
         };
         setErrors(newErrors);
     };
