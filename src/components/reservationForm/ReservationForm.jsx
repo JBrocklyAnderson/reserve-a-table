@@ -48,8 +48,6 @@ const ReservationForm = () => {
         );
     };
 
-
-
     return (
         <div className={styles.layout}>
             <h1>Reservation details</h1>
@@ -66,11 +64,12 @@ const ReservationForm = () => {
                         max={50}
                         onBlur={handleBlur}
                         onChange={handleChange}
+                        aria-invalid={errors.firstName ? 'true' : 'false' }
                         style={{ outline: errors.firstName !== '' ? '3px solid var(--error)' : undefined }}
                         autoComplete='name'
                         required
                     />
-                    {errors.firstName && <div className={styles.errorMessage}>{errors.firstName}</div>}
+                    {errors.firstName && <div className={styles.errorMessage} role='alert'>{errors.firstName}</div>}
                     <br />
 
                     <label htmlFor='lastName'>Last Name</label>
@@ -82,11 +81,12 @@ const ReservationForm = () => {
                         max={50}
                         onBlur={handleBlur}
                         onChange={handleChange}
+                        aria-invalid={errors.lastName ? 'true' : 'false' }
                         style={{ outline: errors.lastName !== '' ? '3px solid var(--error)' : undefined }}
                         autoComplete='name'
                         required
                     />
-                    {errors.lastName && <div className={styles.errorMessage}>{errors.lastName}</div>}
+                    {errors.lastName && <div className={styles.errorMessage} role='alert'>{errors.lastName}</div>}
                     <br />
 
                     <label htmlFor='phone'>Phone</label>
@@ -98,11 +98,12 @@ const ReservationForm = () => {
                         value={formData.phone}
                         onBlur={handleBlur}
                         onChange={handleChange}
+                        aria-invalid={errors.phone ? 'true' : 'false' }
                         style={{ outline: errors.phone !== '' ? '3px solid var(--error)' : undefined}}
                         autoComplete='tel'
                         required
                     />
-                    {errors.phone  && <div className={styles.errorMessage}>{errors.phone}</div>}
+                    {errors.phone  && <div className={styles.errorMessage} role='alert'>{errors.phone}</div>}
                     <br />
 
                     <label htmlFor='email'>Email (optional)</label>
@@ -112,10 +113,11 @@ const ReservationForm = () => {
                         name='email'
                         value={formData.email}
                         onChange={handleChange}
+                        aria-invalid={errors.email ? 'true' : 'false' }
                         style={{ outline: errors.email !== '' ? '3px solid var(--error)' : undefined}}
                         autoComplete='email'
                     />
-                    {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
+                    {errors.email && <div className={styles.errorMessage} role='alert'>{errors.email}</div>}
                 </fieldset>
 
                 <fieldset className={styles.prefs}>
@@ -127,10 +129,11 @@ const ReservationForm = () => {
                         name='date'
                         value={formData.date}
                         onChange={handleChange}
+                        aria-invalid={errors.date ? 'true' : 'false' }
                         style={{ outline: errors.date !== '' ? '3px solid var(--error)' : undefined}}
                         required
                     />
-                    {errors.date && <div className={styles.errorMessage}>{errors.date}</div>}
+                    {errors.date && <div className={styles.errorMessage} role='alert'>{errors.date}</div>}
                     <br />
 
                     <label htmlFor='timePicker'>Time</label>
@@ -222,10 +225,11 @@ const ReservationForm = () => {
                         min={1}
                         max={12}
                         onChange={handleChange}
+                        aria-invalid={errors.guestCount ? 'true' : 'false' }
                         style={{ outline: errors.guestCount !== '' ? '3px solid var(--error)' : undefined}}
                         required
                     />
-                    {errors.guestCount && <div className={styles.errorMessage}>{errors.guestCount}</div>}
+                    {errors.guestCount && <div className={styles.errorMessage} role='alert'>{errors.guestCount}</div>}
                     <br />
 
                     <label htmlFor='occasion'>Occasion</label>
@@ -253,10 +257,11 @@ const ReservationForm = () => {
                         placeholder="I can't wait to eat here!"
                         value={formData.comment}
                         onChange={handleChange}
+                        aria-invalid={errors.comment ? 'true' : 'false' }
                         style={{ outline: errors.comment !== '' ? '3px solid var(--error)' : undefined }}
                         autoComplete='off'
                     />
-                    {errors.comment && <div className={styles.errorMessage}>{errors.comment}</div>}
+                    {errors.comment && <div className={styles.errorMessage} role='alert'>{errors.comment}</div>}
 
                     <button
                         type='submit'
